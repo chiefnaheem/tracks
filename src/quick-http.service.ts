@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
 import { HttpService as NestHttpService } from '@nestjs/axios';
 import { concatMap, delay, retryWhen } from 'rxjs/operators';
 import { lastValueFrom, of, throwError } from 'rxjs';
@@ -12,7 +11,6 @@ export class QuickHttpService {
   readonly retryWait = 1000;
 
   constructor(
-    private readonly configService: ConfigService,
     private readonly httpService: NestHttpService,
   ) {}
 
