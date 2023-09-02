@@ -8,27 +8,9 @@ import { QuickHttpService } from './quick-http.service';
 export class AppService {
   constructor(private readonly httpService: QuickHttpService) {}
 
-  // async getArtist(id: number, page =1, limit = 10): Promise<any>{
-  //   //we are making call to this api: https://api.deezer.com/artist/
-  //   const topTracksResponse = await axios.get(`https://api.deezer.com/artist/${id}/top?index=${page}&limit=${limit}`)
-  //   const albumsResponse = await axios.get(`https://api.deezer.com/artist/${id}/albums?index=${page}&limit=${limit}`)
-  //   const artistResponse = await axios.get(`https://api.deezer.com/artist/${id}`)
-  //   const relatedArtistsResponse = await axios.get(`https://api.deezer.com/artist/${id}/related?index=${page}&limit=${limit}`)
-  //   return {
-  //     topTracks: topTracksResponse.data,
-  //     albums: albumsResponse.data,
-  //     artist: artistResponse.data,
-  //     relatedArtists: relatedArtistsResponse.data
-  //   }
-  // }
 
-  // async searchTracks(query: string, page =1, limit = 10): Promise<any>{
-  //   //we are making call to this api: https://api.deezer.com/search/track
-  //   const response = await axios.get(`https://api.deezer.com/search/track?q=${query}&index=${page}&limit=${limit}`)
-  //   return response.data
-  // }
 
-  async getArtist(id: number, pg: PaginationDto): Promise<any> {
+  async getArtist(id: number, pg: PaginationDto){
     try {
       const { page, limit } = pg;
       const topTracksResponse = await this.httpService.request(
@@ -71,7 +53,7 @@ export class AppService {
     }
   }
 
-  async searchTracks(data: SearchDto): Promise<any> {
+  async searchTracks(data: SearchDto) {
     try {
       const { page, limit, query } = data;
       const response = await this.httpService.request(

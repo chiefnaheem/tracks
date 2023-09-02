@@ -74,7 +74,7 @@
     "MainLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/nest-test-dev-main"
+        "LogGroupName": "/aws/lambda/nest-track-service-dev-main"
       }
     },
     "IamRoleLambdaExecution": {
@@ -102,7 +102,7 @@
               "Fn::Join": [
                 "-",
                 [
-                  "nest-test",
+                  "nest-track-service",
                   "dev",
                   "lambda"
                 ]
@@ -120,7 +120,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/nest-test-dev*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/nest-track-service-dev*:*"
                     }
                   ]
                 },
@@ -131,7 +131,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/nest-test-dev*:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/nest-track-service-dev*:*:*"
                     }
                   ]
                 }
@@ -144,7 +144,7 @@
           "Fn::Join": [
             "-",
             [
-              "nest-test",
+              "nest-track-service",
               "dev",
               {
                 "Ref": "AWS::Region"
@@ -162,11 +162,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/nest-test/dev/1693689887982-2023-09-02T21:24:47.982Z/nest-test.zip"
+          "S3Key": "serverless/nest-track-service/dev/1693696004792-2023-09-02T23:06:44.792Z/nest-track-service.zip"
         },
         "Handler": "dist/src/serverless.handler",
         "Runtime": "nodejs14.x",
-        "FunctionName": "nest-test-dev-main",
+        "FunctionName": "nest-track-service-dev-main",
         "MemorySize": 256,
         "Timeout": 6,
         "Role": {
@@ -180,20 +180,20 @@
         "MainLogGroup"
       ]
     },
-    "MainLambdaVersionEy7i6IHHfTSK3P33GC5qVZckCHSKpqFSzR9rNkl4Y": {
+    "MainLambdaVersion8AaG0Uo676JuGE707SWrr6g85bT4jDpvU9Nb6ReQQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "MainLambdaFunction"
         },
-        "CodeSha256": "ScnxP6FrOYe4xhSadOwmKnQhR2GHXSwQEO+fAHDPIkc="
+        "CodeSha256": "ah1bg5G90N90eegqC4TYBM4UlvLMBtubl4864WZirNE="
       }
     },
     "ApiGatewayRestApi": {
       "Type": "AWS::ApiGateway::RestApi",
       "Properties": {
-        "Name": "dev-nest-test",
+        "Name": "dev-nest-track-service",
         "EndpointConfiguration": {
           "Types": [
             "EDGE"
@@ -312,7 +312,7 @@
         "MainLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1693689872910": {
+    "ApiGatewayDeployment1693695989871": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -369,16 +369,16 @@
         "Ref": "ServerlessDeploymentBucket"
       },
       "Export": {
-        "Name": "sls-nest-test-dev-ServerlessDeploymentBucketName"
+        "Name": "sls-nest-track-service-dev-ServerlessDeploymentBucketName"
       }
     },
     "MainLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "MainLambdaVersionEy7i6IHHfTSK3P33GC5qVZckCHSKpqFSzR9rNkl4Y"
+        "Ref": "MainLambdaVersion8AaG0Uo676JuGE707SWrr6g85bT4jDpvU9Nb6ReQQ"
       },
       "Export": {
-        "Name": "sls-nest-test-dev-MainLambdaFunctionQualifiedArn"
+        "Name": "sls-nest-track-service-dev-MainLambdaFunctionQualifiedArn"
       }
     },
     "ServiceEndpoint": {
@@ -404,7 +404,7 @@
         ]
       },
       "Export": {
-        "Name": "sls-nest-test-dev-ServiceEndpoint"
+        "Name": "sls-nest-track-service-dev-ServiceEndpoint"
       }
     }
   }

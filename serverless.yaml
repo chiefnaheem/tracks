@@ -1,6 +1,6 @@
 
 
-service: nest-test
+service: nest-track-service
 
 plugins:
   - serverless-offline
