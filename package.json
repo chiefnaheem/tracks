@@ -28,6 +28,7 @@
     "@nestjs/config": "^3.0.1",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/serve-static": "^4.0.0",
     "@types/aws-lambda": "^8.10.119",
     "@types/aws-serverless-express": "^3.3.5",
     "@vendia/serverless-express": "^4.10.4",
